@@ -11,6 +11,15 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText);
     }
+    const handleClearClick = () => {
+        let newText = '';
+        setText(newText);
+    }
+    const handleCopyToClipboardClick = () => {
+        navigator.clipboard.writeText(text);
+        let newText = 'copied to clipboard.';
+        setText(newText);
+    }
 
     const handleOnChange = (e) => {
         setText(e.target.value)
@@ -22,8 +31,10 @@ export default function TextForm(props) {
                 <h3>{props.heading}</h3>
                 <div className="mb-3">
                     <textarea className="form-control" id="mybox" rows="12" value={text} onChange={handleOnChange} placeholder="Start typing..."></textarea>
-                    <button className="btn btn-outline-primary my-3 mx-3" onClick={handleUpClick}>Convert to Uppercase</button>
-                    <button className="btn btn-outline-info my-3" onClick={handleLowClick}>Convert to Lowercase</button>
+                    <button className="btn btn-outline-primary my-3" onClick={handleUpClick}>Convert to Uppercase</button>
+                    <button className="btn btn-outline-primary my-3 mx-3" onClick={handleLowClick}>Convert to Lowercase</button>
+                    <button className="btn btn-outline-primary my-3" onClick={handleClearClick}>Clear</button> 
+                    <button className="btn btn-outline-primary my-3 mx-3" onClick={handleCopyToClipboardClick}>Copy to Clipboard</button> 
                 </div>
             </div>
 
