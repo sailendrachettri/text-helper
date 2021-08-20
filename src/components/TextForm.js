@@ -16,9 +16,10 @@ export default function TextForm(props) {
         setText(newText);
     }
     const handleCopyToClipboardClick = () => {
-        navigator.clipboard.writeText(text);
-        let newText = 'copied to clipboard.';
-        setText(newText);
+        var txt = document.getElementById('mybox');
+        txt.select();
+        navigator.clipboard.writeText(txt.value)
+        // setText(txt);
     }
 
     const handleOnChange = (e) => {
@@ -27,10 +28,14 @@ export default function TextForm(props) {
 
     return (
         <>
-            <div className="container">
+            <div className="container" style={{color: `${props.mode === 'dark' ? 'white' : 'light'}`}}>
                 <h3>{props.heading}</h3>
                 <div className="mb-3">
-                    <textarea className="form-control" id="mybox" rows="12" value={text} onChange={handleOnChange} placeholder="Start typing..."></textarea>
+                    <textarea className="form-control" id="mybox" rows="12" value={text} onChange={handleOnChange} style={{
+                        backgroundColor: `${props.mode === 'dark' ? '#101214' : 'light'}`,
+                        color: `${props.mode === 'dark' ? 'white' : 'light'}`
+
+                    }} placeholder="Start typing..."></textarea>
                     <button className="btn btn-outline-primary my-3" onClick={handleUpClick}>Convert to Uppercase</button>
                     <button className="btn btn-outline-primary my-3 mx-3" onClick={handleLowClick}>Convert to Lowercase</button>
                     <button className="btn btn-outline-primary my-3" onClick={handleClearClick}>Clear</button> 
@@ -38,7 +43,7 @@ export default function TextForm(props) {
                 </div>
             </div>
 
-            <div className="container my-3">
+            <div className="container my-3"  style={{color: `${props.mode === 'dark' ? 'white' : 'light'}`}}>
                 <h1>Your text summery</h1>
                 <p>{text.split(' ').length - 1} words, {text.length} characters</p>
                 <p>{Math.floor((0.008 * text.split(' ').length)/3)} Min read</p>
