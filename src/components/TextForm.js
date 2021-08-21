@@ -6,20 +6,23 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to uppercase", "success");
     }
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to lowercase", "success");
     }
     const handleClearClick = () => {
         let newText = '';
         setText(newText);
+        props.showAlert("Text cleared", "success");
     }
     const handleCopyToClipboardClick = () => {
         var txt = document.getElementById('mybox');
         txt.select();
         navigator.clipboard.writeText(txt.value)
-        // setText(txt);
+        props.showAlert("Copied to clipboard", "success");
     }
 
     const handleOnChange = (e) => {
@@ -32,7 +35,7 @@ export default function TextForm(props) {
                 <h3>{props.heading}</h3>
                 <div className="mb-3">
                     <textarea className="form-control" id="mybox" rows="12" value={text} onChange={handleOnChange} style={{
-                        backgroundColor: `${props.mode === 'dark' ? '#101214' : 'light'}`,
+                        backgroundColor: `${props.mode === 'dark' ? '#101214' : 'white'}`,
                         color: `${props.mode === 'dark' ? 'white' : 'light'}`
 
                     }} placeholder="Start typing..."></textarea>
