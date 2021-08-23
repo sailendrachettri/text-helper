@@ -7,22 +7,26 @@ export default function TextForm(props) {
         let newText = text.toUpperCase();
         setText(newText);
         props.showAlert("Converted to uppercase", "success");
+        document.title = 'Converted to uppercase';
     }
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
         props.showAlert("Converted to lowercase", "success");
+        document.title = 'Converted to lowercase';
     }
     const handleClearClick = () => {
         let newText = '';
         setText(newText);
         props.showAlert("Text cleared", "success");
+        document.title = 'Text-utils - Homepage'
     }
     const handleCopyToClipboardClick = () => {
         var txt = document.getElementById('mybox');
         txt.select();
         navigator.clipboard.writeText(txt.value)
         props.showAlert("Copied to clipboard", "success");
+        document.title = 'Text copied to clipboard';
     }
 
     const handleOnChange = (e) => {
