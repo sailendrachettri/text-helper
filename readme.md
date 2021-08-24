@@ -1,5 +1,5 @@
 
-# Text-Utility (txt-helper) 
+# Text-Utility ([txt-helper](https://txt-helper.herokuapp.com)) 
 
 Text Utility is an React application that helps you to convert text into lower case or vice versa. I know this is quite basic but will add more functionality later.
 
