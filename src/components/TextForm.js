@@ -32,7 +32,7 @@ export default function TextForm(props) {
 
     const handleOnChange = (e) => {
         setText(e.target.value)
-    }
+    } 
 
     return (
         <>
