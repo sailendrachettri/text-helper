@@ -3,6 +3,9 @@
 
 Text Utility is an React application that helps you to convert text into lower case or vice versa.
 
+## Live Dome
+https://txt-helper.herokuapp.com
+
 ## Tech Stack
 
 - Reactjs
@@ -18,13 +21,9 @@ Text Utility is an React application that helps you to convert text into lower c
   
 ## Projects I made during this course
 
-**Dark mode**
+## Dark mode
 ![App Screenshot](https://github.com/sailendrachettri/text-helper/blob/main/public/txt-dark.png)
 ![App Screenshot]()
 
-**Light mode**
+## Light mode
 ![App Screenshot](https://github.com/sailendrachettri/text-helper/blob/main/public/txt-dark.png)
-
-## Live Dome
-
-https://txt-helper.herokuapp.com
