@@ -23,7 +23,7 @@ https://txt-helper.herokuapp.com
 
 ## Dark mode
 ![App Screenshot](https://github.com/sailendrachettri/text-helper/blob/main/public/txt-dark.png)
-![App Screenshot]()
+
 
 ## Light mode
 ![App Screenshot](https://github.com/sailendrachettri/text-helper/blob/main/public/txt-dark.png)
