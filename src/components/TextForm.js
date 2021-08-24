@@ -25,6 +25,7 @@ export default function TextForm(props) {
         var txt = document.getElementById('mybox');
         txt.select();
         navigator.clipboard.writeText(txt.value)
+        document.getSelection().removeAllRanges();
         props.showAlert("Copied to clipboard", "success");
         document.title = 'Text copied to clipboard';
     }
@@ -35,7 +36,7 @@ export default function TextForm(props) {
 
     return (
         <>
-            <div className="container" style={{color: `${props.mode === 'dark' ? 'white' : 'light'}`}}>
+            <div className="container" style={{color: `${props.mode === 'dark' ? 'white' : 'black'}`}}>
                 <h3>{props.heading}</h3>
                 <div className="mb-3">
                     <textarea className="form-control" id="mybox" rows="12" value={text} onChange={handleOnChange} style={{
@@ -43,19 +44,19 @@ export default function TextForm(props) {
                         color: `${props.mode === 'dark' ? 'white' : 'light'}`
 
                     }} placeholder="Start typing..."></textarea>
-                    <button className="btn btn-outline-primary my-3" onClick={handleUpClick}>Convert to Uppercase</button>
-                    <button className="btn btn-outline-primary my-3 mx-3" onClick={handleLowClick}>Convert to Lowercase</button>
-                    <button className="btn btn-outline-primary my-3" onClick={handleClearClick}>Clear</button> 
-                    <button className="btn btn-outline-primary my-3 mx-3" onClick={handleCopyToClipboardClick}>Copy to Clipboard</button> 
+                    <button disabled={text.length === 0} className="btn btn-outline-primary my-1 mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
+                    <button disabled={text.length === 0} className="btn btn-outline-primary my-1 mx-1" onClick={handleLowClick}>Convert to Lowercase</button>
+                    <button disabled={text.length === 0} className="btn btn-outline-primary my-1 mx-1" onClick={handleClearClick}>Clear</button> 
+                    <button disabled={text.length === 0} className="btn btn-outline-primary my-1 mx-1" onClick={handleCopyToClipboardClick}>Copy to Clipboard</button> 
                 </div>
             </div>
 
-            <div className="container my-3"  style={{color: `${props.mode === 'dark' ? 'white' : 'light'}`}}>
+            <div className="container my-3"  style={{color: `${props.mode === 'dark' ? 'white' : 'black'}`}}>
                 <h1>Your text summery</h1>
-                <p>{text.split(' ').length - 1} words, {text.length} characters</p>
+                <p>{text.split(' ').filter((element)=>{return element.length !== 0}).length} words, {text.length} characters</p>
                 <p>{Math.floor((0.008 * text.split(' ').length)/3)} Min read</p>
                 <h3>Preview</h3>
-                <p>{text}</p>
+                <p>{text.length>0?text: "Nothing to preview"}</p> {/* if text .length is greater than 0 then print text else print other msg */}
             </div>
         </>
     )
