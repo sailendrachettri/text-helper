@@ -28,4 +28,4 @@ https://txt-helper.herokuapp.com
 
 
 ## Light mode
-![App Screenshot](https://github.com/sailendrachettri/text-helper/blob/main/public/txt-light.png)
+![App Screenshot](https://github.com/sailendrachettri/text-helper/blob/main/public/txt-dark.png)
